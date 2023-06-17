@@ -1,0 +1,1183 @@
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100;300;400;500;700;800;900&family=Alegreya:wght@400;500;600;700;800;900&family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100;300;400;500;700;800;900&family=Alegreya:wght@400;500;600;700;800;900&family=Amatic+SC:wght@400;700&family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  /* transition: .3s; */
+  /* border: 1px solid red; */
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  padding-top: 80px;
+  font-family: "Open Sans", sans-serif;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #252525;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #312d2d;
+}
+::-moz-selection {
+  /* Code for Firefox */
+  color: #fff;
+  background: var(--redColorLightMode);
+}
+
+::selection {
+  color: #fff;
+  background: var(--redColorLightMode);
+}
+/* =================== GGLLOOBBAAL PPOPERTIES TO AVOID REPEATING MYSELF ===================   */
+:root {
+  --grayColor: #86848d;
+  --hoverColor: #d31f1f;
+  --hoverColorDarkMode: #d68b23;
+  --nav-lightBg: #fff;
+  --nav-nightModeBg: #171717;
+  --sectionLightBg-1: #ffff;
+  --sectionLightBg-2: #efefef;
+  --sectionDarkBg-1: #252525;
+  --sectionDarkBg-2: #202020;
+  --redColorLightMode: rgb(206 18 18);
+  --brownColorDarkMode: #b6781f;
+  --secondFont: "Amatic SC", cursive;
+  --paragraphColorDrakMode: #9f9f9f;
+}
+.container {
+  width: 90%;
+  margin: auto;
+}
+section {
+  padding: 80px 0;
+}
+a {
+  color: #000;
+}
+.title {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.title h2 {
+  font-size: 15px;
+  color: #7f7f90;
+  font-weight: 400;
+}
+.title p {
+  color: #212123;
+  font-size: 61px;
+  font-family: var(--secondFont);
+}
+p span {
+  color: var(--redColorLightMode);
+}
+/* ============ GLOBAL Night Mode Setting ============   */
+
+body:has(input[type="checkbox"]:checked) .title h2 {
+  color: #fff;
+}
+body:has(input[type="checkbox"]:checked) .title h2 + p {
+  color: #fff;
+}
+body:has(input[type="checkbox"]:checked) .title p span {
+  color: var(--brownColorDarkMode);
+}
+/* ============ Start Navbar ============ */
+nav {
+  width: 100%;
+  padding: 20px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--nav-lightBg);
+  z-index: 9999;
+}
+nav .navContainer {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav .navContainer .brand h1 a {
+  color: #000;
+  font-size: 30px;
+}
+nav .navContainer .brand h1 a span {
+  color: var(--redColorLightMode);
+}
+nav .navContainer .links ul {
+  display: flex;
+  font-size: 17px;
+}
+nav .navContainer .links ul li:not(:last-child) {
+  margin-right: 15px;
+}
+nav .navContainer .links ul li a {
+  color: var(--grayColor);
+  font-weight: 600;
+  position: relative;
+  transition: 0.3s;
+}
+nav .navContainer .links ul .active {
+  color: #000;
+}
+nav .navContainer .links ul li a:hover {
+  color: #000;
+}
+nav .navContainer .links ul li a::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background-color: var(--redColorLightMode);
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  transition: 0.3s;
+}
+nav .navContainer .links ul .active::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background-color: var(--redColorLightMode);
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  transition: 0.3s;
+}
+nav .navContainer .links ul li a:hover::after {
+  width: 100%;
+}
+nav .navContainer .icons {
+  display: flex;
+  align-items: center;
+}
+nav .navContainer .icons .darkModeIcon {
+  margin-right: 20px;
+}
+nav .navContainer .icons .burgerMenu {
+  font-size: 30px;
+  display: none;
+}
+nav .navContainer .darkModeIcon input {
+  display: none;
+}
+nav .navContainer .darkModeIcon i {
+  font-size: 25px;
+  cursor: pointer;
+}
+/* START NIGHT MODE OF NAVBAR  */
+input[type="checkbox"]:checked + label {
+  color: #fff;
+}
+body:has(input[type="checkbox"]:checked) nav {
+  background-color: #171717;
+}
+body:has(input[type="checkbox"]:checked) nav .burgerMenu {
+  color: #fff;
+}
+body:has(input[type="checkbox"]:checked) nav h1 a {
+  color: #fff;
+}
+body:has(input[type="checkbox"]:checked) nav h1 a span {
+  color: var(--brownColorDarkMode);
+}
+body:has(input[type="checkbox"]:checked) nav .links .active {
+  color: #fff;
+}
+body:has(input[type="checkbox"]:checked)
+  nav
+  .navContainer
+  .links
+  ul
+  li
+  a::after {
+  background-color: var(--brownColorDarkMode);
+}
+body:has(input[type="checkbox"]:checked)
+  nav
+  .navContainer
+  .links
+  ul
+  li
+  a:hover {
+  color: #fff;
+}
+/* ============ End Navbar ============ */
+
+/* ============ Start Landing Section ============ */
+.landing {
+  background-color: var(--sectionLightBg-2);
+  min-height: 100vh;
+  padding: 50px 0;
+}
+.landing .container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.landing .container .landing-text {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.landing .container .landing-text .content {
+  width: 85%;
+}
+.landing .container .landing-text .content h2 {
+  font-family: var(--secondFont);
+  font-size: 65px;
+  color: #37373f;
+}
+.landing .container .landing-text .content p {
+  color: #4f4f5a;
+  margin: 20px 0;
+}
+.landing .container .landing-text .content .btns {
+  display: flex;
+  align-items: center;
+}
+.landing .container .landing-text .content .btns .book-btn {
+  background-color: var(--redColorLightMode);
+  color: #fff;
+  padding: 13px 25px;
+  border-radius: 0 30px 30px 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.landing .container .landing-text .content .btns .book-btn:hover {
+  background-color: var(--hoverColor);
+}
+.landing .container .landing-text .content .btns .video {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  margin-left: 50px;
+}
+.landing .container .landing-text .content .btns .video span {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgb(195, 20, 20);
+  background: linear-gradient(
+    90deg,
+    rgba(195, 20, 20, 1) 50%,
+    rgba(238, 238, 238, 1) 50%
+  );
+  display: grid;
+  place-items: center;
+  margin-right: 5px;
+}
+.landing .container .landing-text .content .btns .video span i {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 50%;
+  color: #000;
+  transition: 0.3s;
+}
+.landing .container .landing-text .content .btns .video span i:hover {
+  color: var(--hoverColor);
+}
+.landing .container .landing-text .content .btns .video-btn {
+  color: #000;
+  font-weight: 500;
+  transition: 0.3s;
+}
+.landing .container .landing-text .content .btns .video-btn:hover {
+  color: var(--hoverColor);
+}
+body:has(.landing .container .landing-text .content .btns .video span i:hover)
+  .landing
+  .container
+  .landing-text
+  .content
+  .btns
+  .video-btn {
+  color: var(--hoverColor);
+}
+
+.landing .container .landing-text .content .btns .video-btn:hover + span a i {
+  color: var(--hoverColor);
+}
+
+.landing .container .landing-img {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+.landing .container .landing-img img {
+  width: 80%;
+  filter: drop-shadow(5px 5px 10px #000);
+  animation: vibrate 0.3s ease-in-out infinite both,
+    rotate 10s cubic-bezier(0.17, 0.67, 0.83, 0.67) infinite alternate-reverse;
+  animation-play-state: paused;
+}
+.landing .container .landing-img img:hover {
+  animation-play-state: running;
+}
+@keyframes vibrate {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+@keyframes rotate {
+  form {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
+/* Start Media Query of Landing Section & Navbar  */
+@media (max-width: 991.98px) {
+  nav .navContainer .icons .darkModeIcon i {
+    font-size: 30px;
+  }
+  nav .navContainer .icons .burgerMenu {
+    font-size: 30px;
+    display: block;
+    cursor: pointer;
+  }
+  nav .navContainer .links {
+    display: none;
+  }
+  .landing .container {
+    flex-direction: column-reverse;
+  }
+  .landing .container .landing-text {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+  .landing .container .landing-text .content .btns {
+    justify-content: center;
+  }
+  .landing .container .landing-text .content .btns .book-btn {
+    border-radius: 30px;
+  }
+
+  .landing .container .landing-img {
+    width: 100%;
+    object-fit: contain;
+    margin-bottom: 50px;
+  }
+}
+@media (max-width: 767.98px) {
+  .landing .container .landing-text .content .btns {
+    flex-direction: column;
+  }
+  .landing .container .landing-text .content .btns .video {
+    margin: auto;
+    margin-top: 15px;
+  }
+}
+/* START NIGHT MODE OF LANDING PAGE  */
+body:has(input[type="checkbox"]:checked) .landing {
+  background-color: var(--sectionDarkBg-1);
+}
+body:has(input[type="checkbox"]:checked)
+  .landing
+  .container
+  .landing-text
+  .content
+  h2 {
+  color: #fff;
+}
+body:has(input[type="checkbox"]:checked)
+  .landing
+  .container
+  .landing-text
+  .content
+  p {
+  color: var(--paragraphColorDrakMode);
+}
+body:has(input[type="checkbox"]:checked)
+  .landing
+  .container
+  .landing-text
+  .content
+  .btns
+  .book-btn {
+  background-color: var(--brownColorDarkMode);
+}
+body:has(input[type="checkbox"]:checked)
+  .landing
+  .container
+  .landing-text
+  .content
+  .btns
+  .book-btn:hover {
+  background-color: var(--hoverColorDarkMode);
+}
+body:has(input[type="checkbox"]:checked)
+  .landing
+  .container
+  .landing-text
+  .content
+  .btns
+  .video
+  span {
+  background: rgb(193, 126, 31);
+  background: linear-gradient(
+    90deg,
+    rgba(193, 126, 31, 1) 50%,
+    rgba(37, 37, 37, 1) 50%
+  );
+}
+body:has(input[type="checkbox"]:checked)
+  .landing
+  .container
+  .landing-text
+  .content
+  .btns
+  .video
+  span
+  i {
+  color: var(--brownColorDarkMode);
+}
+body:has(input[type="checkbox"]:checked)
+  .landing
+  .container
+  .landing-text
+  .content
+  .btns
+  .video
+  span
+  i:hover {
+  color: var(--hoverColorDarkMode);
+}
+body:has(input[type="checkbox"]:checked)
+  .landing
+  .container
+  .landing-text
+  .content
+  .btns
+  .video-btn {
+  color: #fff;
+}
+body:has(input[type="checkbox"]:checked)
+  .landing
+  .container
+  .landing-text
+  .content
+  .btns
+  .video-btn:hover {
+  color: var(--hoverColorDarkMode);
+}
+/* ============ End Landing Section ============ */
+
+/* ============ Start Our Chefs Section ============ */
+
+.ourChefs {
+  text-align: center;
+}
+.ourChefs .container .cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  justify-content: center;
+}
+.ourChefs .container .cards-container .card {
+  width: calc(33.333% - 25px);
+  margin-right: 25px;
+  cursor: pointer;
+}
+/* .ourChefs .container .cards-container .card{
+    margin-right: 25px;
+  
+} */
+.ourChefs .container .cards-container .card .content {
+  font-size: 15px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+  transition: 0.3s;
+}
+.ourChefs .container .cards-container .card .content:hover {
+  scale: 1.035;
+}
+.ourChefs .container .cards-container .card .content .card-img {
+  position: relative;
+}
+
+.ourChefs .container .cards-container .card .content .card-img img {
+  width: 100%;
+  border-radius: 10px;
+}
+.ourChefs .container .cards-container .card .content .card-img svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.ourChefs .container .cards-container .card .content .card-accounts {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  background-color: #ffffff4d;
+  width: fit-content;
+  color: #37373f66;
+  font-size: 30px;
+  padding: 10px;
+  position: absolute;
+  top: 20px;
+  right: -250px;
+  transition: 0.3s 0.2s;
+}
+.ourChefs .container .cards-container .card .content .card-accounts i {
+  cursor: pointer;
+  transition: 0.3s;
+}
+.ourChefs .container .cards-container .card .content .card-accounts i:hover {
+  color: #00000091;
+  scale: 1.2;
+}
+.ourChefs .container .cards-container .card .content:hover .card-accounts {
+  right: 20px;
+}
+.ourChefs .container .cards-container .card .content .text {
+  padding: 20px;
+}
+.ourChefs .container .cards-container .card .content .text span {
+  display: inline-block;
+  margin: 15px 0;
+}
+
+.ourChefs .container .cards-container .card .content .text p,
+span {
+  color: #7f7f90;
+  font-style: italic;
+}
+
+/* Start Media Query Of OurChefs Section  */
+@media (max-width: 991.98px) {
+  .ourChefs .container .cards-container {
+    row-gap: 40px;
+  }
+  .ourChefs .container .cards-container .card {
+    width: 90%;
+    margin: 0;
+  }
+  .ourChefs .container .cards-container .card .content {
+    width: 100%;
+  }
+  .ourChefs .container .cards-container .card .content .text h3 {
+    font-size: 40px;
+  }
+  .ourChefs .container .cards-container .card .content .text span {
+    font-size: 25px;
+  }
+  .ourChefs .container .cards-container .card .content .text p {
+    font-size: 25px;
+  }
+  .ourChefs .container .cards-container .card .content .card-accounts {
+    font-size: 70px;
+  }
+}
+@media (max-width: 767.98px) {
+  .ourChefs .container .cards-container .card {
+    width: 98%;
+  }
+
+  .ourChefs .container .cards-container .card .content {
+    width: 100%;
+  }
+  .ourChefs .container .cards-container .card .content .text h3 {
+    font-size: 25px;
+  }
+  .ourChefs .container .cards-container .card .content .text span {
+    font-size: 20px;
+  }
+  .ourChefs .container .cards-container .card .content .text p {
+    font-size: 20px;
+  }
+  .ourChefs .container .cards-container .card .content .card-accounts {
+    font-size: 50px;
+  }
+}
+@media (max-width: 500.98px) {
+  .ourChefs .container .cards-container .card .content .text h3 {
+    font-size: 25px;
+  }
+  .ourChefs .container .cards-container .card .content .text span {
+    font-size: 16px;
+  }
+  .ourChefs .container .cards-container .card .content .text p {
+    font-size: 16px;
+  }
+  .ourChefs .container .cards-container .card .content .card-accounts {
+    font-size: 40px;
+  }
+}
+/* START DARK MODE OF OUR CHEFS SECTION  */
+body:has(input[type="checkbox"]:checked) .ourChefs {
+  background-color: var(--sectionDarkBg-2);
+}
+body:has(input[type="checkbox"]:checked)
+  .ourChefs
+  .container
+  .cards-container
+  .card
+  .content
+  .text
+  h3 {
+  color: #fff;
+}
+body:has(input[type="checkbox"]:checked)
+  .ourChefs
+  .container
+  .cards-container
+  .card
+  .content
+  .text {
+  color: var(--grayColor);
+}
+/* ============ End Our Chefs Section ============ */
+
+/* ============ Sart Our Gallery Section ============ */
+.ourGallery {
+  background-color: #eeeeee;
+}
+
+.ourGallery .gallery-wrapper {
+  width: 90%;
+  margin: auto;
+  columns: 3;
+  margin-top: 30px;
+  gap: 25px;
+}
+.ourGallery .gallery-wrapper .item {
+  box-shadow: 0px 0px 0px 8px rgba(255, 255, 255, 1);
+  -webkit-box-shadow: 0px 0px 0px 8px rgba(255, 255, 255, 1);
+  -moz-box-shadow: 0px 0px 0px 8px rgba(255, 255, 255, 1);
+  margin-bottom: 25px;
+  position: relative;
+  overflow: hidden;
+}
+.ourGallery .gallery-wrapper img {
+  width: 100%;
+  transition: 0.3s;
+}
+.ourGallery .gallery-wrapper .item .layer {
+  position: absolute;
+  top: 160%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000000ab;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+  transition: 0.4s;
+}
+.ourGallery .gallery-wrapper .item:hover .layer p {
+  margin: 10px 0;
+}
+.ourGallery .gallery-wrapper .item:hover .layer {
+  top: 0;
+}
+.ourGallery .gallery-wrapper .item:hover img {
+  scale: 1.2;
+}
+/* Start Media Query Of OurGallery Section  */
+@media (max-width: 991.98px) {
+  .ourGallery .gallery-wrapper {
+    columns: 2;
+  }
+}
+@media (max-width: 767.98px) {
+  .ourGallery .gallery-wrapper {
+    columns: 1;
+  }
+}
+/* START NIGHT MODE OF OUR GALLERY SECTION  */
+body:has(input[type="checkbox"]:checked) .ourGallery {
+  background-color: var(--sectionDarkBg-1);
+}
+/* ============ End Our Gallery Section ============ */
+
+/* ============ Start ConractUs  Section ============ */
+.contactUs {
+  background-color: #f7f7f7;
+}
+.contactUs .container .iframe iframe {
+  width: 100%;
+  height: clamp(270px, 400px, 600px);
+}
+.contactUs .container .contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+.contactUs .container .contact-info .item-data {
+  width: calc(50% - 20px);
+  display: flex;
+  align-items: center;
+  background-color: #eeeded;
+  padding: 20px;
+  margin: 10px;
+}
+.contactUs .container .contact-info .item-data i {
+  background-color: #ce1212;
+  color: #ffff;
+  padding: 20px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.contactUs .container .contact-info .item-data h3 {
+  color: #7d7d7d;
+}
+.contactUs .container .contact-info .item-data p {
+  color: #212529;
+  margin: 5px 0;
+}
+.contactUs .container .contact-info .item-data span {
+  color: #000;
+  font-weight: 700;
+}
+.contactUs .container .form {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 20px;
+}
+.contactUs .container .form input,
+textarea {
+  border: none;
+  outline: 2px solid #ccc;
+  padding: 15px;
+  margin: 10px 0;
+  transition: 0.2s;
+}
+
+.contactUs .container .form input:focus,
+.contactUs .container .form textarea:focus {
+  outline: 2px solid #c31414;
+}
+.contactUs .container .form .input-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.contactUs .container .form .input-group input {
+  width: 49%;
+}
+.contactUs .container .form .subject input {
+  width: 100%;
+}
+
+.contactUs .container .form .text-area textarea {
+  width: 100%;
+}
+.contactUs .container .form .form-btn {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+.contactUs .container .form .form-btn button {
+  border: none;
+  background-color: hsl(0, 84%, 44%);
+  color: #fff;
+  font-size: 15px;
+  padding: 20px 35px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.contactUs .container .form .form-btn button:hover {
+  background-color: #b80e22;
+}
+/* Start Media Query Of ContactUs Section  */
+@media (max-width: 957.98px) {
+  .contactUs .container .form .input-group input {
+    width: 100%;
+  }
+  .contactUs .container .contact-info .item-data {
+    width: 100%;
+  }
+}
+@media (max-width: 479.98px) {
+  .contactUs .container .contact-info .item-data {
+    flex-direction: column;
+    text-align: center;
+  }
+  .contactUs .container .contact-info .item-data i {
+    margin-bottom: 10px;
+  }
+}
+/* START NIGHT MODE OF CONTACT SECTION  */
+body:has(input[type="checkbox"]:checked) .contactUs {
+  background-color: var(--sectionDarkBg-2);
+}
+body:has(input[type="checkbox"]:checked)
+  .contactUs
+  .container
+  .contact-info
+  .item-data {
+  background-color: #0d0d0d;
+}
+body:has(input[type="checkbox"]:checked)
+  .contactUs
+  .container
+  .contact-info
+  .item-data
+  i {
+  background-color: var(--brownColorDarkMode);
+}
+body:has(input[type="checkbox"]:checked)
+  .contactUs
+  .container
+  .contact-info
+  .item-data
+  h3 {
+  color: #adadad;
+}
+body:has(input[type="checkbox"]:checked)
+  .contactUs
+  .container
+  .contact-info
+  .item-data
+  p {
+  color: #fff;
+}
+body:has(input[type="checkbox"]:checked)
+  .contactUs
+  .container
+  .contact-info
+  .item-data
+  span {
+  color: #fff;
+}
+body:has(input[type="checkbox"]:checked)
+  .contactUs
+  .container
+  .contact-info
+  .item-data
+  a {
+  color: #fff;
+}
+body:has(input[type="checkbox"]:checked) .contactUs .container .form {
+  background-color: #171717;
+}
+body:has(input[type="checkbox"]:checked)
+  .contactUs
+  .container
+  .form
+  input:focus {
+  outline: 3px solid var(--brownColorDarkMode);
+}
+body:has(input[type="checkbox"]:checked)
+  .contactUs
+  .container
+  .form
+  textarea:focus {
+  outline: 3px solid var(--brownColorDarkMode);
+}
+body:has(input[type="checkbox"]:checked)
+  .contactUs
+  .container
+  .form
+  .form-btn
+  button {
+  background-color: var(--brownColorDarkMode);
+}
+body:has(input[type="checkbox"]:checked)
+  .contactUs
+  .container
+  .form
+  .form-btn
+  button:hover {
+  background-color: var(--hoverColorDarkMode);
+}
+/* ============ End ConractUs  Section ============ */
+
+/* ============ Start FOOTER  Section ============ */
+footer {
+  background: linear-gradient(#0009, #0009), url("./images/footerBg.jpeg");
+  background-size: contain;
+  padding: 20px 25px;
+  background-color: #030203;
+  min-height: 50vh;
+  color: #fff;
+}
+footer {
+  padding: 20px 0;
+}
+footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 95%;
+}
+footer .container .socialMedia {
+  width: 25%;
+}
+footer .container .socialMedia .heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+footer .container .socialMedia .heading .heading-img {
+  width: 15%;
+  margin-right: 10px;
+  animation: rotate 5s linear 0.4s infinite;
+}
+@keyframes rotate {
+  form {
+    rotate: 0%;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
+footer .container .socialMedia .heading .heading-text {
+  flex: 1;
+}
+footer .socialMedia .heading .heading-text h2 span {
+  color: red;
+}
+footer .container .socialMedia .heading .heading-img img {
+  width: 100%;
+}
+footer .container .socialMedia p {
+  margin: 15px 0;
+}
+footer .container .socialMedia .social-icons h3 {
+  text-align: center;
+  border-bottom: 2px solid #ccc;
+  padding: 10px;
+}
+footer .container .socialMedia .social-icons .icons {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 20px;
+  font-size: 25px;
+}
+footer .container .socialMedia .social-icons .icons a i {
+  color: #fff;
+  cursor: pointer;
+}
+footer .container .subscribe {
+  width: calc(50% - 40px);
+  margin: 0 20px;
+}
+footer .container .subscribe .subscribe-text h3 {
+  font-size: 20px;
+}
+footer .container .subscribe .subscribe-text p {
+  margin: 15px 0;
+}
+footer .container .subscribe .email-input form {
+  display: flex;
+  justify-content: space-between;
+}
+footer .container .subscribe .email-input form input {
+  width: 70%;
+  padding: 15px;
+  border: none;
+  outline: none;
+}
+footer .container .subscribe .email-input form .subscribe-btn {
+  width: 28%;
+  display: flex;
+}
+footer .container .subscribe .email-input form .subscribe-btn button {
+  width: 100%;
+  border: none;
+  color: #fff;
+  background-color: var(--redColorLightMode);
+  font-size: 17px;
+}
+footer .container .subscribe .quick-links h3 {
+  margin: 15px 0;
+}
+footer .container .subscribe .quick-links .list-group {
+  display: flex;
+  justify-content: start;
+  width: 100%;
+}
+footer .container .subscribe .quick-links .list-group ul {
+  width: 50%;
+}
+footer .container .subscribe .quick-links .list-group ul li {
+  margin-bottom: 5px;
+  padding: 5px;
+}
+footer .container .subscribe .quick-links .list-group ul li:hover {
+  background: rgba(255, 255, 255, 0.21);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.4px);
+  -webkit-backdrop-filter: blur(3.4px);
+  padding: 5px 5px 5px 10px;
+  transition: 0.3s;
+}
+footer .container .subscribe .quick-links .list-group ul li a {
+  color: #fff;
+}
+footer .container .getInTouch {
+  width: 25%;
+}
+footer .container .getInTouch h3 {
+  margin-bottom: 25px;
+}
+footer .container .getInTouch ul li {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+footer .container .getInTouch ul li i {
+  font-size: 20px;
+  color: var(--redColorLightMode);
+}
+footer .container .getInTouch ul li a,
+p {
+  color: #fff;
+  display: inline-block;
+  padding-left: 10px;
+}
+/* Start Media Query Of Footer  */
+@media (max-width: 991.98px) {
+  footer .container {
+    padding: 0 50px;
+  }
+  footer .container .socialMedia {
+    order: 1;
+    width: 50%;
+  }
+  footer .container .subscribe {
+    order: 3;
+    width: 100%;
+    padding-top: 20px;
+  }
+  footer .container .getInTouch {
+    order: 2;
+    width: 50%;
+    padding-left: 20px;
+  }
+}
+/* Start Media Query of Footer Section  */
+@media (max-width: 767.98px) {
+  footer .container {
+    padding: 0;
+    row-gap: 20px;
+    width: 98%;
+    margin: auto;
+  }
+  footer .container .socialMedia {
+    width: 100%;
+  }
+  footer .container .subscribe {
+    order: 2;
+    width: 100%;
+  }
+  footer .container .getInTouchP {
+    order: 3;
+    width: 100%;
+  }
+}
+/* START DARK MODE OF FOOTER  */
+body:has(input[type="checkbox"]:checked) footer i {
+  color: var(--brownColorDarkMode);
+}
+body:has(input[type="checkbox"]:checked)
+  footer
+  .container
+  .subscribe
+  .email-input
+  form
+  .subscribe-btn
+  button
+  i {
+  color: #fff;
+}
+body:has(input[type="checkbox"]:checked)
+  footer
+  .container
+  .subscribe
+  .email-input
+  form
+  .subscribe-btn
+  button {
+  background-color: var(--brownColorDarkMode);
+}
+
+/* ============ End FOOTER Section ============ */
+
+/* ============ START ACTIVE NAV-LINK TARGETED SECTION ============  */
+body:has(#chefs:target) a[href="#home"] {
+  color: #86848d;
+}
+body:has(input[type="checkbox"]:checked)
+  body:has(#chefs:target)
+  a[href="#chefs"] {
+  color: #fff;
+}
+body:has(#chefs:target) a[href="#home"]::after {
+  width: 0%;
+}
+body:has(#chefs:target) a[href="#chefs"]::after {
+  width: 100%;
+}
+body:has(#gallery:target) a[href="#home"] {
+  color: #86848d;
+}
+body:has(input[type="checkbox"]:checked)
+  body:has(#gallery:target)
+  a[href="#gallery"] {
+  color: #ffff;
+}
+body:has(#gallery:target) a[href="#gallery"]::after {
+  width: 100%;
+}
+body:has(#gallery:target) a[href="#home"]::after {
+  width: 0%;
+}
+body:has(#contact:target) a[href="#home"] {
+  color: #86848d;
+}
+body:has(input[type="checkbox"]:checked)
+  body:has(#contact:target)
+  a[href="#contact"] {
+  color: #fff;
+}
+body:has(#contact:target) a[href="#contact"]::after {
+  width: 100%;
+}
+body:has(#contact:target) a[href="#home"]::after {
+  width: 0%;
+}
+/* ============ END ACTIVE NAV-LINK TARGET SECTION ============  */
